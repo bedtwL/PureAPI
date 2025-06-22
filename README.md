@@ -201,3 +201,52 @@ public interface PlayerKillEffect extends effectBase{
     }
 }
 ```
+PureFFA.java
+```java
+package me.bedtwL.ffa.api;
+
+import lombok.Getter;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class PureAPI {
+    // 插件instance
+    @Getter
+    private static JavaPlugin plugin;
+    // 設定插件instance
+    public static void setInstance(JavaPlugin instance) {
+        if (plugin==null)
+            plugin=instance;
+    }
+}
+```
+WoolBlockEffect.java
+```java
+package me.bedtwL.ffa.api;
+
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.inventory.ItemStack;
+
+public class WoolBlockEffect implements BlockEffect{
+
+    // 羊毛 後面一定要64(一組
+    public static ItemStack cacheWool=new ItemStack(Material.WOOL,64);
+
+    // 放置方塊要做的事
+    @Override
+    public void onBlockPlace(Block block) {
+    }
+
+    // 獲取方塊
+    @Override
+    public ItemStack getBlock() {
+        return cacheWool;
+    }
+    
+    // effect名稱
+    @Override
+    public String getBlockKey() {
+        return "wool";
+    }
+}
+```
