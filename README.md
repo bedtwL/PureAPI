@@ -8,7 +8,7 @@ import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 // 創一個class 實現這個interface
 public interface BlockEffect {
-   
+    // default的不用實現
     void onBlockPlace(Block block);
     ItemStack getBlock();
     String getBlockKey();
