@@ -19,11 +19,11 @@ public interface BlockEffect {
     default String getItemNameKey() {
         return "";
     }
-    // 不用動 最終選單出現的名字
+    // 不要動 最終選單出現的名字
     default String getEffectItemName() {
         return "item.effect-block."+getItemNameKey()+".name";
     }
-    // 不用動 名字下面的字
+    // 不要動 名字下面的字
     default String getEffectItemLore() {
         return "item.effect-block."+getItemNameKey()+".lore";
     }
