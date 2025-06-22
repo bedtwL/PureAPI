@@ -71,25 +71,25 @@ public abstract class PureHitEffect {
      * Returns the full translation key for the effect's item name.
      * <p>
      * This method is final to ensure consistent translation key formatting.
-     * The returned key follows the pattern: "item.effect-block.{itemNameKey}.name"
+     * The returned key follows the pattern: "item.effect.{itemNameKey}.name"
      * </p>
      *
      * @return the full translation key for the effect's item name
      */
     public final String getEffectItemName() {
-        return "item.effect-block." + getItemNameKey() + ".name";
+        return "item.effect." + getItemNameKey() + ".name";
     }
 
     /**
      * Returns the full translation key for the effect's item lore.
      * <p>
      * This method is final to ensure consistent translation key formatting.
-     * The returned key follows the pattern: "item.effect-block.{itemNameKey}.lore"
+     * The returned key follows the pattern: "item.effect.{itemNameKey}.lore"
      * </p>
      *
      * @return the full translation key for the effect's item lore
      */
     public final String getEffectItemLore() {
-        return "item.effect-block." + getItemNameKey() + ".lore";
+        return "item.effect." + getItemNameKey() + ".lore";
     }
 }
