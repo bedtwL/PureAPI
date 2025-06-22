@@ -8,7 +8,6 @@ import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 // 創一個class 實現這個interface
 public interface BlockEffect {
-    // default的不用實現
     void onBlockPlace(Block block);
     ItemStack getBlock();
     String getBlockKey();
@@ -16,15 +15,15 @@ public interface BlockEffect {
     default Boolean useLang() {
         return false;
     }
-    // 你的effect的名字
+    // 你的effect的名字 如果useLang是true 就一定要填這個
     default String getItemNameKey() {
         return "";
     }
-    // 最終選單出現的名字
+    // 不用動 最終選單出現的名字
     default String getEffectItemName() {
         return "item.effect-block."+getItemNameKey()+".name";
     }
-    // 名字下面的字
+    // 不用動 名字下面的字
     default String getEffectItemLore() {
         return "item.effect-block."+getItemNameKey()+".lore";
     }
