@@ -35,7 +35,8 @@ public interface BlockEffect {
     default void unregisterBlockEffect() {
         EffectManager.playerBlockEffect.put(getBlockKey(),new WoolBlockEffect());
     }
-}```
+}
+```
 
 EffectAddon.java
 ```java
@@ -53,4 +54,5 @@ public interface EffectAddon {
     }
     // PureFFA插件disable的時候做的事 通常是unregister effects
     void onDisable();
-}```
+}
+```
