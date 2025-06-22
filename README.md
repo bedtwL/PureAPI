@@ -160,4 +160,44 @@ public interface PlayerArrowShootEffect extends effectBase{
     }
 }
 ```
+PlayerHitEffect.java
+```java
+package me.bedtwL.ffa.api;
 
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+
+public interface PlayerHitEffect extends effectBase{
+    // 打擊特效 arg一樣
+    void hitEffect(Location location, Player player);
+    default void registerHitEffect() {
+        EffectManager.playerHitEffects.put(getName(),this);
+    }
+    default void unregisterHitEffect() {
+        EffectManager.playerHitEffects.put(getName(),new NoneEffect());
+    }
+}
+```
+PlayerKillEffect.java
+```java
+package me.bedtwL.ffa.api;
+
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+
+public interface PlayerKillEffect extends effectBase{
+    // 擊殺特效 arg一樣
+    default void killEffect(Location location, Player player) {
+
+    }
+    default void killEffect(Location location, Player victim,Player killer) {
+
+    }
+    default void registerKillEffect() {
+        EffectManager.playerKillEffects.put(getName(),this);
+    }
+    default void unregisterKillEffect() {
+        EffectManager.playerHitEffects.put(getName(),new NoneEffect());
+    }
+}
+```
