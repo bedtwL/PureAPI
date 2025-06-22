@@ -1,6 +1,7 @@
 package me.bedtwL.ffa.api.warpper;
 
 import me.bedtwL.ffa.api.BlockEffect;
+import me.bedtwL.ffa.api.PureAPI;
 import me.bedtwL.ffa.api.effect.PureBlock;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
@@ -14,6 +15,7 @@ public class LegacyPureBlock extends PureBlock {
 
     public LegacyPureBlock(BlockEffect legacy) {
         this.legacy = legacy;
+        PureAPI.getPlugin().getLogger().warning("Effect "+legacy.getBlock() +"/"+legacy.getItemNameKey()+" is still using LEGACY API!");
     }
 
     @Override

@@ -1,6 +1,7 @@
 package me.bedtwL.ffa.api.warpper;
 
 import me.bedtwL.ffa.api.PlayerArrowShootEffect;
+import me.bedtwL.ffa.api.PureAPI;
 import me.bedtwL.ffa.api.effect.PureArrowShootEffect;
 
 /**
@@ -20,6 +21,7 @@ public class LegacyPureArrowShootEffect extends PureArrowShootEffect {
      */
     public LegacyPureArrowShootEffect(PlayerArrowShootEffect legacy) {
         this.legacy = legacy;
+        PureAPI.getPlugin().getLogger().warning("Effect "+legacy.getName()+" is still using LEGACY API!");
     }
 
     @Override

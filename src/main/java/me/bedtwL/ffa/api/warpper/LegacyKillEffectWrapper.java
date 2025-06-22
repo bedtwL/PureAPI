@@ -1,6 +1,7 @@
 package me.bedtwL.ffa.api.warpper;
 
 import me.bedtwL.ffa.api.PlayerKillEffect;
+import me.bedtwL.ffa.api.PureAPI;
 import me.bedtwL.ffa.api.effect.PureKillEffect;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -25,6 +26,7 @@ public class LegacyKillEffectWrapper extends PureKillEffect {
 
     public LegacyKillEffectWrapper(PlayerKillEffect legacy) {
         this.legacy = legacy;
+        PureAPI.getPlugin().getLogger().warning("Effect "+legacy.getName()+" is still using LEGACY API!");
     }
 
     @Override

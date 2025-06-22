@@ -1,6 +1,7 @@
 package me.bedtwL.ffa.api.warpper;
 
 import me.bedtwL.ffa.api.PlayerArrowHitEffect;
+import me.bedtwL.ffa.api.PureAPI;
 
 /**
  * @deprecated
@@ -19,6 +20,7 @@ public class LegacyPureArrowHitEffect extends me.bedtwL.ffa.api.PureArrowHitEffe
      */
     public LegacyPureArrowHitEffect(PlayerArrowHitEffect legacy) {
         this.legacy = legacy;
+        PureAPI.getPlugin().getLogger().warning("Effect "+legacy.getName()+" is still using LEGACY API!");
     }
 
     @Override

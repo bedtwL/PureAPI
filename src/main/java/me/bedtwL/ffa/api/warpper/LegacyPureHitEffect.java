@@ -1,6 +1,7 @@
 package me.bedtwL.ffa.api.warpper;
 
 import me.bedtwL.ffa.api.PlayerHitEffect;
+import me.bedtwL.ffa.api.PureAPI;
 import me.bedtwL.ffa.api.effect.PureHitEffect;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -23,6 +24,7 @@ public class LegacyPureHitEffect extends PureHitEffect {
      */
     public LegacyPureHitEffect(PlayerHitEffect legacy) {
         this.legacy = legacy;
+        PureAPI.getPlugin().getLogger().warning("Effect "+legacy.getName()+" is still using LEGACY API!");
     }
 
     @Override
