@@ -120,3 +120,23 @@ public class NoneEffect implements PlayerHitEffect, PlayerKillEffect,PlayerArrow
     }
 }
 ```
+PlayerArrowHitEffect.java
+```java
+package me.bedtwL.ffa.api;
+
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+// 還是一樣創class實現
+public interface PlayerArrowHitEffect extends effectBase{
+    // location, player都是箭矢射到的人
+    void ArrowHitEffect(Location location, Player player);
+    // 不用動 註冊effect
+    default void registerArrowHitEffect() {
+        EffectManager.playerArrowHitEffects.put(getName(),this);
+    }
+    // 不用動 取消註冊effect
+    default void unregisterArrowHitEffect() {
+        EffectManager.playerArrowHitEffects.put(getName(),new NoneEffect());
+    }
+}
+```
