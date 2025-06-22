@@ -1,4 +1,4 @@
-# PureAPI - An API for bedtwL Server PureFDA addons!
+# PureAPI - An API for bedtwL Server PureFFA addons!
 
 BlockEffect.java
 ```java
