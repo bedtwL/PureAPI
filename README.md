@@ -140,3 +140,24 @@ public interface PlayerArrowHitEffect extends effectBase{
     }
 }
 ```
+PlayerArrowShotEffect.java
+```java
+package me.bedtwL.ffa.api;
+
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+// 還是創class實現
+public interface PlayerArrowShootEffect extends effectBase{
+    // 箭矢飛過去的例子
+    void ArrowShootEffect(Location location, Player player);
+    // 不用動 註冊effect
+    default void registerArrowShootEffect() {
+        EffectManager.playerArrowShootEffects.put(getName(),this);
+    }
+    // 不用動 取消註冊effect
+    default void unregisterArrowShootEffect() {
+        EffectManager.playerArrowShootEffects.put(getName(),new NoneEffect());
+    }
+}
+```
+
