@@ -1,5 +1,26 @@
 # PureAPI - An API for bedtwL Server PureFFA addons!
 
+To start working with this, you have to add to the following things to your pom.xml
+
+```xml
+<repository>
+            <id>bedtwl-repo</id>
+            <url>https://mvn.bedtwl.com/maven-repo/</url>
+        </repository>
+```
+
+```xml
+<dependency>
+            <groupId>me.bedtwL</groupId>
+            <artifactId>PureAPI</artifactId>
+            <version>1.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+```
+
+Classes
+
+
 BlockEffect.java
 
 ```java
