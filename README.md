@@ -250,3 +250,27 @@ public class WoolBlockEffect implements BlockEffect{
     }
 }
 ```
+effectBase.java
+```java
+package me.bedtwL.ffa.api;
+
+import org.bukkit.inventory.ItemStack;
+// effect最核心
+public interface effectBase {
+    // 取得名稱
+    String getName();
+    /// items.effect.(blablabla).(lore/name)
+    // effect的名稱
+    String getItemNameKey();
+    // effect圖示
+    ItemStack getItemBase();
+    // effect圖示的物品名稱
+    default String getEffectItemName() {
+        return "item.effect."+getItemNameKey()+".name";
+    }
+    // 圖示的物品名稱下面的字
+    default String getEffectItemLore() {
+        return "item.effect."+getItemNameKey()+".lore";
+    }
+}
+```
