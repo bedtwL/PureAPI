@@ -56,3 +56,67 @@ public interface EffectAddon {
     void onDisable();
 }
 ```
+EffectManager.java
+```java
+package me.bedtwL.ffa.api;
+
+import java.util.HashMap;
+// 管理addons的
+public class EffectManager {
+    public static HashMap<String,PlayerHitEffect> playerHitEffects = new HashMap<>();
+    public static HashMap<String,PlayerKillEffect> playerKillEffects = new HashMap<>();
+    public static HashMap<String,PlayerArrowHitEffect> playerArrowHitEffects = new HashMap<>();
+    public static HashMap<String,PlayerArrowShootEffect> playerArrowShootEffects = new HashMap<>();
+    public static HashMap<String,BlockEffect> playerBlockEffect = new HashMap<>();
+}
+```
+NoneEffect.java
+```java
+package me.bedtwL.ffa.api;
+
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+// 這個class實現打擊 擊殺 箭矢射出及擊中的特效
+public class NoneEffect implements PlayerHitEffect, PlayerKillEffect,PlayerArrowHitEffect,PlayerArrowShootEffect {
+    
+    // addon名字
+    @Override
+    public String getName() {
+        return "none";
+    }
+   
+    // addon圖示(物品)名字
+    @Override
+    public String getItemNameKey() {
+        return "none";
+    }
+
+    // 圖示
+    @Override
+    public ItemStack getItemBase() {
+        return new ItemStack(Material.BARRIER);
+    }
+
+    // 打擊特效 location, player都是受到打擊的人
+    @Override
+    public void hitEffect(Location location, Player player) {
+    }
+
+    // 擊殺特效 跟上面的arg一樣
+    @Override
+    public void killEffect(Location location, Player player) {
+    }
+
+    // 箭矢擊中特效 還是跟上面arg一樣
+    @Override
+    public void ArrowHitEffect(Location location, Player player) {
+    }
+
+    // 箭矢射出特效 箭矢飛過去的粒子 arg還是一樣
+    @Override
+    public void ArrowShootEffect(Location location, Player player) {
+    }
+}
+```
