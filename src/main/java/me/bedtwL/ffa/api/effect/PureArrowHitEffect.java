@@ -1,5 +1,6 @@
-package me.bedtwL.ffa.api;
+package me.bedtwL.ffa.api.effect;
 
+import me.bedtwL.ffa.api.EffectManager;
 import me.bedtwL.ffa.api.none.NoneArrowHitEffect;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -15,7 +16,6 @@ import org.bukkit.inventory.ItemStack;
  * <p>Manage registration lifecycle with {@link #registerArrowHitEffect()} and {@link #unregisterArrowHitEffect()}.</p>
  */
 public abstract class PureArrowHitEffect {
-
     /**
      * Called when a player is hit by an arrow.
      *

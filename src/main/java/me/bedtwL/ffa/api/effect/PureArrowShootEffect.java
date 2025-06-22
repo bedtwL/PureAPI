@@ -1,5 +1,6 @@
 package me.bedtwL.ffa.api.effect;
 
+import me.bedtwL.ffa.api.EffectAddon;
 import me.bedtwL.ffa.api.EffectManager;
 import me.bedtwL.ffa.api.none.NoneArrowShootEffect;
 import org.bukkit.Location;
@@ -16,7 +17,6 @@ import org.bukkit.inventory.ItemStack;
  * <p>Manage registration lifecycle with {@link #registerArrowShootEffect()} and {@link #unregisterArrowShootEffect()}.</p>
  */
 public abstract class PureArrowShootEffect {
-
     /**
      * Called when a player shoots an arrow.
      *

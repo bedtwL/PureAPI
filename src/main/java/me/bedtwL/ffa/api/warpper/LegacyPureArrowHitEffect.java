@@ -1,15 +1,15 @@
 package me.bedtwL.ffa.api.warpper;
 
 import me.bedtwL.ffa.api.PlayerArrowHitEffect;
-import me.bedtwL.ffa.api.PureAPI;
+import me.bedtwL.ffa.api.effect.PureArrowHitEffect;
 
 /**
  * @deprecated
  * Wrapper adapter to allow legacy {@link PlayerArrowHitEffect} implementations
- * to be used as {@link me.bedtwL.ffa.api.PureArrowHitEffect}.
+ * to be used as {@link PureArrowHitEffect}.
  */
 @Deprecated
-public class LegacyPureArrowHitEffect extends me.bedtwL.ffa.api.PureArrowHitEffect {
+public class LegacyPureArrowHitEffect extends PureArrowHitEffect {
 
     private final PlayerArrowHitEffect legacy;
 
@@ -20,7 +20,6 @@ public class LegacyPureArrowHitEffect extends me.bedtwL.ffa.api.PureArrowHitEffe
      */
     public LegacyPureArrowHitEffect(PlayerArrowHitEffect legacy) {
         this.legacy = legacy;
-        PureAPI.getPlugin().getLogger().warning("Effect "+legacy.getName()+" is still using LEGACY API!");
     }
 
     @Override
