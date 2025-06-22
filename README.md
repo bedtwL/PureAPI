@@ -36,3 +36,21 @@ public interface BlockEffect {
         EffectManager.playerBlockEffect.put(getBlockKey(),new WoolBlockEffect());
     }
 }```
+
+EffectAddon.java
+```java
+package me.bedtwL.ffa.api;
+// 一樣創class實現這個
+public interface EffectAddon {
+    // addon名字
+    String getName();
+    // 你的名字
+    String getAuthor();
+    // PureFFA插件enable的時候做的事 通常是reguster effects
+    void onEnable();
+    // PureFFA插件第一次載入你的addon的時候做的事
+    default void onFirstLoad() {
+    }
+    // PureFFA插件disable的時候做的事 通常是unregister effects
+    void onDisable();
+}```
