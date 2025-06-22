@@ -87,13 +87,13 @@ public class NoneEffect implements PlayerHitEffect, PlayerKillEffect,PlayerArrow
         return "none";
     }
    
-    // addon圖示(物品)名字
+    // effect名字
     @Override
     public String getItemNameKey() {
         return "none";
     }
 
-    // 圖示
+    // effect圖示
     @Override
     public ItemStack getItemBase() {
         return new ItemStack(Material.BARRIER);
