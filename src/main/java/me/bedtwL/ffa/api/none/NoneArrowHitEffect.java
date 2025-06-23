@@ -1,6 +1,5 @@
 package me.bedtwL.ffa.api.none;
 
-import me.bedtwL.ffa.api.EffectAddon;
 import me.bedtwL.ffa.api.effect.PureArrowHitEffect;
 import org.bukkit.Location;
 import org.bukkit.Material;

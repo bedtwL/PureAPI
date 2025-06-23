@@ -19,7 +19,7 @@ import org.bukkit.inventory.ItemStack;
  *
  * <h3>Usage:</h3>
  * <ul>
- *   <li>Call {@link #registerKillEffect()} in your plugin's {@code onEnable()} method to register this effect.</li>
+ *   <li>Call {@link #registerKillEffect(EffectAddon)} in your plugin's {@code onEnable()} method to register this effect.</li>
  *   <li>Call {@link #unregisterKillEffect()} in {@code onDisable()} to safely unregister it.</li>
  *   <li>Override {@link #killEffect(Location, Player)} to implement victim-only effects (e.g., particles or sounds).</li>
  *   <li>Override {@link #killEffect(Location, Player, Player)} to implement effects involving both killer and victim.</li>
@@ -51,18 +51,6 @@ public abstract class PureKillEffect {
         // Optional override
     }
 
-    /**
-     * @deprecated
-     * Use {@link #registerKillEffect(EffectAddon)} instead to ensure proper addon tracking.
-     * <p>
-     * Registers this kill effect into the {@link EffectManager}.
-     * Typically called in your plugin's {@code onEnable()}.
-     */
-    @Deprecated
-    public final void registerKillEffect() {
-        EffectManager.playerKillEffects.put(getName(), this);
-        PureAPI.getPlugin().getLogger().warning("Effect "+getName()+" is still using LEGACY API!");
-    }
     /**
      * Registers this kill effect into the {@link EffectManager}.
      * Typically called in your plugin's {@code onEnable()}.

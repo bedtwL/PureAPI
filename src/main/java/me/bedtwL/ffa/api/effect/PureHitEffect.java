@@ -2,7 +2,6 @@ package me.bedtwL.ffa.api.effect;
 
 import me.bedtwL.ffa.api.EffectAddon;
 import me.bedtwL.ffa.api.EffectManager;
-import me.bedtwL.ffa.api.PureAPI;
 import me.bedtwL.ffa.api.none.NoneHitEffect;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -16,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
  *
  * <p>Override {@link #hitEffect(Location, Player)} to implement custom hit effect behavior.</p>
  *
- * <p>Use {@link #registerHitEffect()} and {@link #unregisterHitEffect()} to manage the lifecycle of the effect.</p>
+ * <p>Use {@link #registerHitEffect(EffectAddon)} and {@link #unregisterHitEffect()} to manage the lifecycle of the effect.</p>
  */
 public abstract class PureHitEffect {
     public EffectAddon addon;
@@ -29,18 +28,6 @@ public abstract class PureHitEffect {
      */
     public abstract void hitEffect(Location location, Player player);
 
-    /**
-     * @deprecated
-     * Use {@link #registerHitEffect(EffectAddon)} instead to ensure proper addon tracking.
-     * <p>
-     * Registers this hit effect into the {@link EffectManager}.
-     * Typically called in your plugin's {@code onEnable()} method.
-     */
-    @Deprecated
-    public final void registerHitEffect() {
-        EffectManager.playerHitEffects.put(getName(), this);
-        PureAPI.getPlugin().getLogger().warning("Effect "+getName()+" is still using LEGACY API!");
-    }
 
     /**
      * Registers this hit effect into the {@link EffectManager}, and associates it with the given {@link EffectAddon}.

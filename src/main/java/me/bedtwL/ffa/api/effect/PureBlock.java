@@ -16,7 +16,7 @@ import org.bukkit.inventory.ItemStack;
  *
  * <h3>Usage:</h3>
  * <ul>
- *   <li>Call {@link #registerBlockEffect()} in your plugin's {@code onEnable()} method to register the effect.</li>
+ *   <li>Call {@link #registerBlockEffect(EffectAddon)} in your plugin's {@code onEnable()} method to register the effect.</li>
  *   <li>Call {@link #unregisterBlockEffect()} in {@code onDisable()} to safely unregister the effect.</li>
  *   <li>Override {@link #onBlockPlace(Block)} to define what happens when a player places a block.</li>
  *   <li>Override {@link #getBlock()} to return the visual item given to players (e.g. wool, glass).</li>
@@ -93,18 +93,6 @@ public abstract class PureBlock {
         return "item.effect-block." + getItemNameKey() + ".lore";
     }
 
-    /**
-     * @deprecated
-     * Use {@link #registerBlockEffect(EffectAddon)} instead to ensure proper addon tracking.
-     * <p>
-     * Registers this block effect into the {@link EffectManager}.
-     * <p>Typically called in {@code onEnable()}.</p>
-     */
-    @Deprecated
-    public final void registerBlockEffect() {
-        EffectManager.playerBlockEffect.put(getBlockKey(), this);
-        PureAPI.getPlugin().getLogger().warning("Effect "+getBlock().getType()+"/"+getBlockKey()+" is still using LEGACY API!");
-    }
     /**
      * Registers this block effect into the {@link EffectManager}.
      * <p>Typically called in {@code onEnable()}.</p>

@@ -15,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
  *
  * <p>Override {@link #arrowHitEffect(Location, Player)} to define your custom effect behavior.</p>
  *
- * <p>Manage registration lifecycle with {@link #registerArrowHitEffect()} and {@link #unregisterArrowHitEffect()}.</p>
+ * <p>Manage registration lifecycle with {@link #registerArrowHitEffect(EffectAddon)} and {@link #unregisterArrowHitEffect()}.</p>
  */
 public abstract class PureArrowHitEffect {
     public EffectAddon addon;
@@ -26,19 +26,6 @@ public abstract class PureArrowHitEffect {
      * @param player the player who was hit by the arrow
      */
     public abstract void arrowHitEffect(Location location, Player player);
-
-    /**
-     * @deprecated
-     * Use {@link #registerArrowHitEffect(EffectAddon)} instead to ensure proper addon tracking.
-     * <p>
-     * Registers this arrow hit effect into the {@link EffectManager}.
-     * Usually called during plugin {@code onEnable()}.
-     */
-    @Deprecated
-    public final void registerArrowHitEffect() {
-        EffectManager.playerArrowHitEffects.put(getName(), this);
-        PureAPI.getPlugin().getLogger().warning("Effect "+getName()+" is still using LEGACY API!");
-    }
 
     /**
      * Registers this arrow hit effect into the {@link EffectManager}.

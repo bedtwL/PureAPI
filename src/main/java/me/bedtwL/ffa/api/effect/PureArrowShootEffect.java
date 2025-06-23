@@ -15,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
  *
  * <p>Override {@link #arrowShootEffect(Location, Player)} to define your custom effect behavior.</p>
  *
- * <p>Manage registration lifecycle with {@link #registerArrowShootEffect()} and {@link #unregisterArrowShootEffect()}.</p>
+ * <p>Manage registration lifecycle with {@link #registerArrowShootEffect(EffectAddon)} and {@link #unregisterArrowShootEffect()}.</p>
  */
 public abstract class PureArrowShootEffect {
     public EffectAddon addon;
@@ -27,18 +27,6 @@ public abstract class PureArrowShootEffect {
      */
     public abstract void arrowShootEffect(Location location, Player player);
 
-    /**
-     * @deprecated
-     * Use {@link #registerArrowShootEffect(EffectAddon)} instead to ensure proper addon tracking.
-     * <p>
-     * Registers this arrow shoot effect into the {@link EffectManager}.
-     * Usually called during plugin {@code onEnable()}.
-     */
-    @Deprecated
-    public final void registerArrowShootEffect() {
-        EffectManager.playerArrowShootEffects.put(getName(), this);
-        PureAPI.getPlugin().getLogger().warning("Effect "+getName()+" is still using LEGACY API!");
-    }
     /**
      * Registers this arrow shoot effect into the {@link EffectManager}.
      * Usually called during plugin {@code onEnable()}.
