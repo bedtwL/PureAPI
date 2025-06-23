@@ -1,6 +1,8 @@
 package me.bedtwL.ffa.api.effect;
 
+import me.bedtwL.ffa.api.EffectAddon;
 import me.bedtwL.ffa.api.EffectManager;
+import me.bedtwL.ffa.api.PureAPI;
 import me.bedtwL.ffa.api.none.WoolBlockEffect;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
@@ -25,7 +27,7 @@ import org.bukkit.inventory.ItemStack;
  * @see me.bedtwL.ffa.api.EffectManager#playerBlockEffect
  */
 public abstract class PureBlock {
-
+    public EffectAddon addon;
     /**
      * Called when the player places a block using this effect.
      *
@@ -92,11 +94,24 @@ public abstract class PureBlock {
     }
 
     /**
+     * @deprecated
+     * Use {@link #registerBlockEffect(EffectAddon)} instead to ensure proper addon tracking.
+     * <p>
      * Registers this block effect into the {@link EffectManager}.
      * <p>Typically called in {@code onEnable()}.</p>
      */
+    @Deprecated
     public final void registerBlockEffect() {
         EffectManager.playerBlockEffect.put(getBlockKey(), this);
+        PureAPI.getPlugin().getLogger().warning("Effect "+getBlock().getType()+"/"+getBlockKey()+" is still using LEGACY API!");
+    }
+    /**
+     * Registers this block effect into the {@link EffectManager}.
+     * <p>Typically called in {@code onEnable()}.</p>
+     */
+    public final void registerBlockEffect(EffectAddon addon) {
+        EffectManager.playerBlockEffect.put(getBlockKey(), this);
+        this.addon=addon;
     }
 
     /**

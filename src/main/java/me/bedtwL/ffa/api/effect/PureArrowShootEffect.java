@@ -2,6 +2,7 @@ package me.bedtwL.ffa.api.effect;
 
 import me.bedtwL.ffa.api.EffectAddon;
 import me.bedtwL.ffa.api.EffectManager;
+import me.bedtwL.ffa.api.PureAPI;
 import me.bedtwL.ffa.api.none.NoneArrowShootEffect;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -17,6 +18,7 @@ import org.bukkit.inventory.ItemStack;
  * <p>Manage registration lifecycle with {@link #registerArrowShootEffect()} and {@link #unregisterArrowShootEffect()}.</p>
  */
 public abstract class PureArrowShootEffect {
+    public EffectAddon addon;
     /**
      * Called when a player shoots an arrow.
      *
@@ -26,11 +28,24 @@ public abstract class PureArrowShootEffect {
     public abstract void arrowShootEffect(Location location, Player player);
 
     /**
+     * @deprecated
+     * Use {@link #registerArrowShootEffect(EffectAddon)} instead to ensure proper addon tracking.
+     * <p>
      * Registers this arrow shoot effect into the {@link EffectManager}.
      * Usually called during plugin {@code onEnable()}.
      */
+    @Deprecated
     public final void registerArrowShootEffect() {
         EffectManager.playerArrowShootEffects.put(getName(), this);
+        PureAPI.getPlugin().getLogger().warning("Effect "+getName()+" is still using LEGACY API!");
+    }
+    /**
+     * Registers this arrow shoot effect into the {@link EffectManager}.
+     * Usually called during plugin {@code onEnable()}.
+     */
+    public final void registerArrowShootEffect(EffectAddon addon) {
+        EffectManager.playerArrowShootEffects.put(getName(), this);
+        this.addon=addon;
     }
 
     /**

@@ -10,4 +10,7 @@ public class PureAPI {
         if (plugin==null)
             plugin=instance;
     }
+    public static Integer getAPIVer() {
+        return 1;
+    }
 }

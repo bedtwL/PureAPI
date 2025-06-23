@@ -1,6 +1,8 @@
 package me.bedtwL.ffa.api.effect;
 
+import me.bedtwL.ffa.api.EffectAddon;
 import me.bedtwL.ffa.api.EffectManager;
+import me.bedtwL.ffa.api.PureAPI;
 import me.bedtwL.ffa.api.effectBase;
 import me.bedtwL.ffa.api.none.NoneKillEffect;
 import org.bukkit.Location;
@@ -27,7 +29,7 @@ import org.bukkit.inventory.ItemStack;
  * @see me.bedtwL.ffa.api.EffectManager#playerKillEffects
  */
 public abstract class PureKillEffect {
-
+    public EffectAddon addon;
     /**
      * Called when a player dies. Override this to play effects for the victim only.
      *
@@ -50,11 +52,24 @@ public abstract class PureKillEffect {
     }
 
     /**
+     * @deprecated
+     * Use {@link #registerKillEffect(EffectAddon)} instead to ensure proper addon tracking.
+     * <p>
      * Registers this kill effect into the {@link EffectManager}.
      * Typically called in your plugin's {@code onEnable()}.
      */
+    @Deprecated
     public final void registerKillEffect() {
         EffectManager.playerKillEffects.put(getName(), this);
+        PureAPI.getPlugin().getLogger().warning("Effect "+getName()+" is still using LEGACY API!");
+    }
+    /**
+     * Registers this kill effect into the {@link EffectManager}.
+     * Typically called in your plugin's {@code onEnable()}.
+     */
+    public final void registerKillEffect(EffectAddon addon) {
+        EffectManager.playerKillEffects.put(getName(), this);
+        this.addon=addon;
     }
 
     /**
