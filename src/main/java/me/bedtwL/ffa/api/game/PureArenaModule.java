@@ -86,6 +86,7 @@ public abstract class PureArenaModule {
     public void onPlayerJoin(PureArenaSettings settings, Player p) {}
     public void onPlayerQuit(PureArenaSettings settings, Player p) {}
     public void onEntityDamageByEntity(PureArenaSettings settings, EntityDamageByEntityEvent e) {}
+    public boolean onEntityDamageByEntityB(PureArenaSettings settings, EntityDamageByEntityEvent e) {return false;}
     public void onPlayerBlockPlace(PureArenaSettings settings, BlockPlaceEvent e) {}
     // dont cancel the event if return true
     public boolean onPlayerBlockPlaceB(PureArenaSettings settings, BlockPlaceEvent e) {return false;}
