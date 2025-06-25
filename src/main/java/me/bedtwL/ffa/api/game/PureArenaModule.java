@@ -2,6 +2,7 @@ package me.bedtwL.ffa.api.game;
 
 import me.bedtwL.ffa.api.ArenaModuleManager;
 import me.bedtwL.ffa.api.EffectAddon;
+import me.bedtwL.ffa.api.language.PlayerLanguage;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -10,6 +11,8 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
 
 public abstract class PureArenaModule {
     public EffectAddon addon;
@@ -91,4 +94,5 @@ public abstract class PureArenaModule {
     public void onPlayerDeath(PureArenaSettings settings, Player killer, Player victim, EntityDamageEvent.DamageCause cause) {}
     public boolean onPlayerDeathA(PureArenaSettings settings, PlayerDeathEvent e) {return false;}
     public boolean onPlayerDeathA(PureArenaSettings settings, Player killer, Player victim, EntityDamageEvent.DamageCause cause) {return false;}
+    public ArrayList<String> getScoreboardLines(PureArenaSettings settings, Player p, PlayerLanguage language) {return new ArrayList<>();}
 }
