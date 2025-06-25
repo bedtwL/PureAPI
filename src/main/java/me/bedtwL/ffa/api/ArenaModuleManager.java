@@ -7,5 +7,5 @@ import java.util.Map;
 
 public class ArenaModuleManager {
     public static Map<String, Class<? extends PureArenaModule>> arenaModules = new HashMap<>();
-
+    public static HashMap<String, PureArenaModule> arenaModuleQuickLoad=new HashMap<>();
 }
