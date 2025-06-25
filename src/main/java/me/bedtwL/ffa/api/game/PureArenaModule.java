@@ -87,8 +87,13 @@ public abstract class PureArenaModule {
     public void onPlayerQuit(PureArenaSettings settings, Player p) {}
     public void onEntityDamageByEntity(PureArenaSettings settings, EntityDamageByEntityEvent e) {}
     public void onPlayerBlockPlace(PureArenaSettings settings, BlockPlaceEvent e) {}
+    // dont cancel the event if return true
+    public boolean onPlayerBlockPlaceB(PureArenaSettings settings, BlockPlaceEvent e) {return false;}
     public void onBlockBreak(PureArenaSettings settings, BlockBreakEvent e) {}
+    // if end game then return true
     public boolean onBlockBreakA(PureArenaSettings settings, BlockBreakEvent e) {return false;}
+    // dont cancel the event if return true
+    public boolean onBlockBreakB(PureArenaSettings settings, BlockBreakEvent e) {return false;}
     public void onPlayerDeath(PureArenaSettings settings, PlayerDeathEvent e) {}
     public void onPlayerMove(PureArenaSettings settings, PlayerMoveEvent e) {}
     public void onPlayerDeath(PureArenaSettings settings, Player killer, Player victim, EntityDamageEvent.DamageCause cause) {}
