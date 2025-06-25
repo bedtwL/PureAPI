@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.bedtwL</groupId>
     <artifactId>PureAPI</artifactId>
-    <version>1.0.4-INSIDER-2</version>
+    <version>1.0.4-INSIDER-3</version>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
