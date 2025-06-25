@@ -83,6 +83,7 @@ public abstract class PureArenaModule {
         return "item.game." + getItemNameKey() + ".lore";
     }
     public void onLoad(PureArenaSettings settings) {}
+    public boolean onPlayerRespawn(PureArenaSettings settings, Player victim) {return false;}
     public void onPlayerJoin(PureArenaSettings settings, Player p) {}
     public void onPlayerQuit(PureArenaSettings settings, Player p) {}
     public void onEntityDamageByEntity(PureArenaSettings settings, EntityDamageByEntityEvent e) {}
