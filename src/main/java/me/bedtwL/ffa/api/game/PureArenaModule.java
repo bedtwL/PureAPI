@@ -85,6 +85,7 @@ public abstract class PureArenaModule {
     public void onEntityDamageByEntity(PureArenaSettings settings, EntityDamageByEntityEvent e) {}
     public void onPlayerBlockPlace(PureArenaSettings settings, BlockPlaceEvent e) {}
     public void onBlockBreak(PureArenaSettings settings, BlockBreakEvent e) {}
+    public boolean onBlockBreakA(PureArenaSettings settings, BlockBreakEvent e) {return false;}
     public void onPlayerDeath(PureArenaSettings settings, PlayerDeathEvent e) {}
     public void onPlayerMove(PureArenaSettings settings, PlayerMoveEvent e) {}
     public void onPlayerDeath(PureArenaSettings settings, Player killer, Player victim, EntityDamageEvent.DamageCause cause) {}
