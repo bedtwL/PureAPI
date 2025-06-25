@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public abstract class PureArenaModule {
     public EffectAddon addon;
+    public PureArenaModule() {}
     /**
      * Registers this arrow shoot effect into the {@link ArenaModuleManager}.
      * Usually called during plugin {@code onEnable()}.
