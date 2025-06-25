@@ -1,5 +1,6 @@
 package me.bedtwL.ffa.api.game;
 
+import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -9,6 +10,7 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.util.ArrayList;
 
+@Getter
 public class PureArenaSettings {
     private final Location spawnPoint;
     private final Integer heightLimit;
