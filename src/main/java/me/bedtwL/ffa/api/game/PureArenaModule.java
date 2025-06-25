@@ -22,7 +22,7 @@ public abstract class PureArenaModule {
      * Usually called during plugin {@code onEnable()}.
      */
     public final void registerGameModule(EffectAddon addon) {
-        ArenaModuleManager.arenaModules.put(getName(), PureArenaModule.class);
+        ArenaModuleManager.arenaModules.put(getName(), this.getClass());
         this.addon=addon;
     }
 
