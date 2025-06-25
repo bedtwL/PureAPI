@@ -8,6 +8,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 
 public abstract class PureArenaModule {
@@ -85,6 +86,7 @@ public abstract class PureArenaModule {
     public void onPlayerBlockPlace(PureArenaSettings settings, BlockPlaceEvent e) {}
     public void onBlockBreak(PureArenaSettings settings, BlockBreakEvent e) {}
     public void onPlayerDeath(PureArenaSettings settings, PlayerDeathEvent e) {}
+    public void onPlayerMove(PureArenaSettings settings, PlayerMoveEvent e) {}
     public void onPlayerDeath(PureArenaSettings settings, Player killer, Player victim, EntityDamageEvent.DamageCause cause) {}
     public boolean onPlayerDeathA(PureArenaSettings settings, PlayerDeathEvent e) {return false;}
     public boolean onPlayerDeathA(PureArenaSettings settings, Player killer, Player victim, EntityDamageEvent.DamageCause cause) {return false;}
