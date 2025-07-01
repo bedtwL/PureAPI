@@ -19,6 +19,7 @@ To start working with this, you must add to the following things to your pom.xml
 ```
 
 # Guide
+### Wrote by ItsGlobally. Any grammer error, dm me on discord.
 Today, we will make an effect addon.
 
 At the first, we do the things above.
